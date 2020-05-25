@@ -20,7 +20,7 @@ pipeline {
          }
 	//  stage('Test container'){
      //       steps {
-	// 	sh 'curl -$(docker-machine ip default):80'
+	// 	sh 'curl -$(docker-machine ip default):80 '
 
           //  }
 	//  }
