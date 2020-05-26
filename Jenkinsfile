@@ -18,18 +18,14 @@ pipeline {
                   }
              }
          }
-	//  stage('Test container'){
-     //       steps {
-	// 	sh 'curl -$(docker-machine ip default):80 '
 
-          //  }
-	//  }
-         
          stage('Push container') {
               steps { 
                    script {
-                        docker.withRegistry('', dockerCredentials)
-                        dockerImage.push()
+                        docker.withRegistry('', dockerCredentials) {
+                         dockerImage.push()
+
+                        }
                    }
           //          withCredentials([usernamePassword( usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD' )]) {
           //        sh 'docker login -u $USERNAME -p $PASSWORD'
