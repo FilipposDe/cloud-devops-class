@@ -1,0 +1,12 @@
+- name: Playbook
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Apply all manifests
+      k8s:
+        state: present
+        definition: "{{ lookup('template', '{{ item }}') }}"
+        namespace: default
+      with_fileglob:
+        - "deployment.yml"
+        - "service.yml"

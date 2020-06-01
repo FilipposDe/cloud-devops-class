@@ -34,11 +34,11 @@ pipeline {
           //        sh 'docker push $env.DOCKER_PATH'
           //     }
          }         
-     //     stage('Deploy to cluster') {
-     //          steps { 
-                   
-     //          }
-     //     }         
+         stage('Deploy to cluster') {
+              steps { 
+                   sh 'ansible-playbook playbook.yml'      
+              }
+         }         
 
      }
 }}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment                 
+metadata:
+  name: udacity-d
+spec:
+  selector:                       
+    matchLabels:
+      app: udacity                                    
+  replicas: 1                     
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate          
+    rollingUpdate: 
+      maxUnavailable: 1          
+      maxSurge: 1              
+  template:                      
+    metadata:
+      labels:
+        app: udacity         
+    spec:
+      containers:
+        - image: philipposde/udacity2
+          imagePullPolicy: Always
+          name: udacity-c
+          ports:
+            - containerPort: 80
