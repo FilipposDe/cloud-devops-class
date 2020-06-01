@@ -6,18 +6,18 @@ pipeline {
 
 	}
      stages {
-	stage('Lint HTML') {
+	     stage('Lint HTML') {
               steps {
                   sh 'tidy -q -e *.html'
               }
-         }
-         stage('Build container') {
-             steps {
+          }
+          stage('Build container') {
+               steps {
                   script {
                        dockerImage = docker.build registry
                   }
-             }
-         }
+               }
+          }
 
          stage('Push container') {
               steps { 
@@ -41,4 +41,5 @@ pipeline {
          }         
 
      }
-}}
+}
+ 
