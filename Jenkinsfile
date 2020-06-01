@@ -31,6 +31,7 @@ pipeline {
          }         
          stage('Deploy to cluster') {
               steps { 
+                   sh 'whoami'
                    sh 'sudo ansible-playbook playbook.yml'      
               }
          }         
