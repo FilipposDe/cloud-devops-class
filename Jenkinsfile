@@ -31,7 +31,8 @@ pipeline {
      //     }         
          stage('Deploy to cluster') {
               steps { 
-                   sh 'ansible-playbook playbook.yml'      
+                   sh 'whoami'      
+               //     sh 'ansible-playbook playbook.yml'      
               }
          }         
 
