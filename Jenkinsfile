@@ -31,7 +31,7 @@ pipeline {
          }         
          stage('Deploy to cluster') {
               steps { 
-                   sh 'sudo -i -u jenkins ansible-playbook playbook.yml'      
+                   sh 'sudo ansible-playbook playbook.yml'      
               }
          }         
 
