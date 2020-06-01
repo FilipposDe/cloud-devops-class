@@ -31,7 +31,7 @@ pipeline {
      //     }         
          stage('Deploy to cluster') {
               steps { 
-                   sh 'ansible-playbook playbook.yml -vvv --become-user=ubuntu'      
+                   sh 'sudo ansible-playbook playbook.yml -vvv --become-user=ubuntu'      
               }
          }         
 
