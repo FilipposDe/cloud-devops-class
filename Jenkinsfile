@@ -32,8 +32,8 @@ pipeline {
          stage('Deploy to cluster') {
               steps { 
                    sh 'whoami'  
-                   ansiblePlaybook(playbook: 'playbook.yml', sudo: 'root')    
-               //     sh 'ansible-playbook playbook.yml'      
+               //     ansiblePlaybook(playbook: 'playbook.yml', sudo: 'root')    
+                   sh 'ansible-playbook playbook.yml '      
               }
          }         
 
