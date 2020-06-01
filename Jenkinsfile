@@ -6,29 +6,29 @@ pipeline {
 
 	}
      stages {
-	     stage('Lint HTML') {
-              steps {
-                  sh 'tidy -q -e *.html'
-              }
-          }
-          stage('Build container') {
-               steps {
-                  script {
-                       dockerImage = docker.build registry
-                  }
-               }
-          }
+	//      stage('Lint HTML') {
+     //          steps {
+     //              sh 'tidy -q -e *.html'
+     //          }
+     //      }
+     //      stage('Build container') {
+     //           steps {
+     //              script {
+     //                   dockerImage = docker.build registry
+     //              }
+     //           }
+     //      }
 
-         stage('Push container') {
-              steps { 
-                   script {
-                        docker.withRegistry('', dockerCredentials) {
-                         dockerImage.push()
+     //     stage('Push container') {
+     //          steps { 
+     //               script {
+     //                    docker.withRegistry('', dockerCredentials) {
+     //                     dockerImage.push()
 
-                        }
-                   }
-              }
-         }         
+     //                    }
+     //               }
+     //          }
+     //     }         
          stage('Deploy to cluster') {
               steps { 
                    sh 'sudo ansible-playbook playbook.yml -vvv'      
