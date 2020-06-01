@@ -27,12 +27,7 @@ pipeline {
 
                         }
                    }
-          //          withCredentials([usernamePassword( usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD' )]) {
-          //        sh 'docker login -u $USERNAME -p $PASSWORD'
-          //        }
-          //        sh 'docker tag udacity2 $env.DOCKER_PATH'
-          //        sh 'docker push $env.DOCKER_PATH'
-          //     }
+              }
          }         
          stage('Deploy to cluster') {
               steps { 
