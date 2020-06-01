@@ -7,7 +7,7 @@
         state: present
         definition: "{{ lookup('template', '{{ item }}') }}"
         namespace: default
-        kubeconfig: "/usr"
+        kubeconfig: "/usr/config"
       with_fileglob:
         - "deployment.yml"
         - "service.yml"
