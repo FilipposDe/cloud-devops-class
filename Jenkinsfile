@@ -29,7 +29,7 @@ pipeline {
 	     }
 	     stage('Deploy to cluster') {
 		     steps {
-			     sh 'ansible-playbook playbook.yml'
+			     sh 'ansible-playbook playbook.yml -vvv'
 		     }
 	     }
      }
